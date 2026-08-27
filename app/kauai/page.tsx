@@ -6,7 +6,6 @@ import { KauaiCategoryNav } from "@/components/kauai/KauaiCategoryNav";
 import { KauaiComparisonTable } from "@/components/kauai/KauaiComparisonTable";
 import { KauaiReadyToChoose } from "@/components/kauai/KauaiReadyToChoose";
 import { KauaiTourReviews } from "@/components/kauai/KauaiTourReviews";
-import { kauaiGuideLinks } from "@/data/kauai-categories";
 import { KAUAI_FEATURED_IMAGE } from "@/data/images";
 import { createPageMetadata } from "@/lib/seo";
 
@@ -24,7 +23,7 @@ export default function KauaiPage() {
       <main className="flex-1 pt-[4.25rem]">
         <KauaiCategoryNav currentPath="/kauai" />
 
-        <section className="relative overflow-hidden bg-navy-deep px-5 pb-16 pt-14 text-white md:px-8 md:pb-24 md:pt-20">
+        <section className="relative overflow-hidden bg-navy-deep px-5 pb-12 pt-10 text-white md:px-8 md:pb-24 md:pt-20">
           <div
             className="pointer-events-none absolute inset-0 opacity-40"
             style={{
@@ -32,15 +31,15 @@ export default function KauaiPage() {
                 "radial-gradient(ellipse 80% 60% at 70% 20%, rgba(42,111,122,0.45), transparent 60%)",
             }}
           />
-          <div className="relative mx-auto grid max-w-6xl items-center gap-10 lg:grid-cols-[minmax(0,1.15fr)_minmax(0,0.85fr)] lg:gap-14">
+          <div className="relative mx-auto grid max-w-6xl items-center gap-8 lg:grid-cols-[minmax(0,1.15fr)_minmax(0,0.85fr)] lg:gap-14">
             <div>
               <p className="text-sm font-semibold uppercase tracking-[0.14em] text-teal-bright">
                 Kauai · Hawaii
               </p>
-              <h1 className="mt-4 max-w-3xl font-display text-3xl leading-tight md:text-5xl md:leading-[1.12]">
+              <h1 className="mt-3 max-w-3xl font-display text-3xl leading-tight md:mt-4 md:text-5xl md:leading-[1.12]">
                 Best Helicopter Tours on Kauai: Compared &amp; Ranked
               </h1>
-              <p className="mt-6 max-w-2xl text-base leading-relaxed text-white/80 md:text-lg">
+              <p className="mt-5 max-w-2xl text-base leading-relaxed text-white/80 md:mt-6 md:text-lg">
                 Kauai is especially well suited to helicopter sightseeing: much
                 of the Na Pali Coast, Waimea Canyon and remote waterfall valleys
                 are difficult or impossible to reach by road. From the air,
@@ -54,7 +53,7 @@ export default function KauaiPage() {
                 booking terms — then rank by fit and evidence, not by
                 marketplace sort order.
               </p>
-              <div className="mt-9 flex flex-wrap gap-4">
+              <div className="mt-8 flex flex-wrap gap-3 md:mt-9 md:gap-4">
                 <Link
                   href="/kauai/doors-off-helicopter-tours"
                   className="rounded-sm bg-teal px-5 py-3 text-sm font-semibold text-white transition-colors hover:bg-teal-bright"
@@ -85,35 +84,7 @@ export default function KauaiPage() {
           </div>
         </section>
 
-        <section className="border-b border-navy/8 bg-mist px-5 py-12 md:px-8">
-          <div className="mx-auto max-w-6xl">
-            <h2 className="font-display text-xl text-navy md:text-2xl">
-              Browse Kauai by traveler intent
-            </h2>
-            <p className="mt-3 max-w-3xl text-base leading-relaxed text-stone">
-              This page owns the broad “best helicopter tours on Kauai”
-              comparison. Use the guides below for more specific searches like
-              doors-off, private, waterfalls, photography and prices.
-            </p>
-            <ul className="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-              {kauaiGuideLinks.map((guide) => (
-                <li key={guide.href}>
-                  <Link
-                    href={guide.href}
-                    className="block rounded-sm border border-navy/10 bg-white px-5 py-4 transition-colors hover:border-teal"
-                  >
-                    <span className="font-medium text-navy">{guide.title}</span>
-                    <span className="mt-1 block text-sm text-stone">
-                      {guide.label} →
-                    </span>
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-        </section>
-
-        <section className="border-b border-navy/8 bg-mist-soft px-5 py-12 md:px-8">
+        <section className="border-b border-navy/8 bg-mist-soft px-5 py-10 md:px-8 md:py-12">
           <div className="mx-auto max-w-6xl">
             <h2 className="font-display text-xl text-navy md:text-2xl">
               How this Kauai ranking works
@@ -125,7 +96,8 @@ export default function KauaiPage() {
               waterfalls, landing, departure base), duration and price relative
               to what the flight offers. Additional Kauai tours are included
               below so you can compare niche options like canyon landings or
-              Princeville departures.
+              Princeville departures. Use the category bar above for doors-off,
+              private, waterfall, photography, prices and operators.
             </p>
           </div>
         </section>

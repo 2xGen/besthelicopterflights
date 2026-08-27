@@ -1,3 +1,5 @@
+import { CookieSettingsButton } from "@/components/CookieSettingsButton";
+
 export function Footer() {
   return (
     <footer className="border-t border-white/10 bg-navy-deep px-5 py-14 text-white md:px-8">
@@ -18,6 +20,10 @@ export function Footer() {
           <a href="/kauai" className="hover:text-white">
             Kauai tours
           </a>
+          <a href="/privacy" className="hover:text-white">
+            Privacy
+          </a>
+          <CookieSettingsButton />
           <a href="/#how-we-compare" className="hover:text-white">
             How we compare
           </a>

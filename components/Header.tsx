@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 
 type HeaderProps = {
@@ -14,6 +15,8 @@ const homeLinks = [
 ];
 
 export function Header({ variant = "overlay" }: HeaderProps) {
+  const pathname = usePathname();
+  const onKauai = pathname === "/kauai" || pathname.startsWith("/kauai/");
   const [scrolled, setScrolled] = useState(variant === "solid");
 
   useEffect(() => {
@@ -35,10 +38,10 @@ export function Header({ variant = "overlay" }: HeaderProps) {
           : "bg-transparent"
       }`}
     >
-      <div className="mx-auto flex max-w-6xl items-center justify-between gap-6 px-5 py-4 md:px-8">
+      <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-5 py-3.5 md:gap-6 md:px-8 md:py-4">
         <Link
           href="/"
-          className="font-display text-lg tracking-tight text-white md:text-xl"
+          className="min-w-0 font-display text-base tracking-tight text-white sm:text-lg md:text-xl"
         >
           Best Helicopter Flights
         </Link>
@@ -56,12 +59,21 @@ export function Header({ variant = "overlay" }: HeaderProps) {
             </Link>
           ))}
         </nav>
-        <Link
-          href="/kauai"
-          className="rounded-sm bg-teal px-3.5 py-2 text-sm font-medium text-white transition-colors hover:bg-teal-bright sm:hidden"
-        >
-          Kauai
-        </Link>
+        {onKauai ? (
+          <Link
+            href="/about"
+            className="shrink-0 rounded-sm border border-white/30 px-3 py-2 text-sm font-medium text-white transition-colors hover:border-white hover:bg-white/10 sm:hidden"
+          >
+            About
+          </Link>
+        ) : (
+          <Link
+            href="/kauai"
+            className="shrink-0 rounded-sm bg-teal px-3.5 py-2 text-sm font-medium text-white transition-colors hover:bg-teal-bright sm:hidden"
+          >
+            Kauai
+          </Link>
+        )}
       </div>
     </header>
   );

@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import { Fraunces, Source_Sans_3 } from "next/font/google";
+import { ConsentAnalytics } from "@/components/ConsentAnalytics";
+import { CookieConsent } from "@/components/CookieConsent";
 import { SITE_OG_IMAGE } from "@/data/images";
 import { SITE_NAME, SITE_URL } from "@/lib/seo";
 import "./globals.css";
@@ -16,12 +18,10 @@ const sourceSans = Source_Sans_3({
   display: "swap",
 });
 
-const defaultTitle =
-  "Best Helicopter Flights — Hawaii Helicopter Tours Researched & Ranked";
+const defaultTitle = "Best Helicopter Flights — Hawaii Tours Compared";
 const defaultDescription =
-  "Independent research and comparisons of helicopter tours in Hawaii. We compare traveler reviews, routes, pricing, operator information and booking terms so you can choose the right flight.";
-const ogTitle =
-  "The Best Helicopter Tours in Hawaii: Researched, Compared & Ranked";
+  "Independent Hawaii helicopter tour research. Compare reviews, routes, prices and operators to choose the right flight.";
+const ogTitle = "Best Helicopter Tours in Hawaii, Compared & Ranked";
 
 const ogImage = {
   url: SITE_OG_IMAGE,
@@ -80,6 +80,8 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
     >
       <body className="min-h-full flex flex-col font-sans text-navy bg-mist">
         {children}
+        <CookieConsent />
+        <ConsentAnalytics />
       </body>
     </html>
   );
