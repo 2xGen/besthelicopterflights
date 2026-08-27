@@ -1,0 +1,100 @@
+@import "tailwindcss";
+
+:root {
+  --navy: #0b1f2a;
+  --navy-deep: #06141c;
+  --mist: #f4f7f8;
+  --mist-soft: #e8eef1;
+  --teal: #2a6f7a;
+  --teal-bright: #3a8a96;
+  --stone: #5c6b73;
+  --stone-light: #8a9aa3;
+  --white: #ffffff;
+  --background: var(--mist);
+  --foreground: var(--navy);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-navy: var(--navy);
+  --color-navy-deep: var(--navy-deep);
+  --color-mist: var(--mist);
+  --color-mist-soft: var(--mist-soft);
+  --color-teal: var(--teal);
+  --color-teal-bright: var(--teal-bright);
+  --color-stone: var(--stone);
+  --color-stone-light: var(--stone-light);
+  --font-sans: var(--font-source-sans);
+  --font-display: var(--font-fraunces);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-source-sans), system-ui, sans-serif;
+}
+
+::selection {
+  background: color-mix(in srgb, var(--teal) 35%, transparent);
+  color: var(--navy-deep);
+}
+
+@keyframes fade-rise {
+  from {
+    opacity: 0;
+    transform: translateY(1.25rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes reveal-up {
+  from {
+    opacity: 0;
+    transform: translateY(1.5rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-rise {
+  animation: fade-rise 0.9s ease-out both;
+}
+
+.animate-fade-in {
+  animation: fade-in 1.1s ease-out both;
+}
+
+.animate-reveal-up {
+  animation: reveal-up 0.7s ease-out both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .animate-fade-rise,
+  .animate-fade-in,
+  .animate-reveal-up {
+    animation: none;
+  }
+}
