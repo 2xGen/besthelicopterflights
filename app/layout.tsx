@@ -78,7 +78,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       lang="en"
       className={`${fraunces.variable} ${sourceSans.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col font-sans text-navy bg-mist">
+      <body className="flex min-h-full max-w-full flex-col bg-mist font-sans text-navy">
         {children}
         <CookieConsent />
         <ConsentAnalytics />

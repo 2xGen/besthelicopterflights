@@ -31,12 +31,23 @@
 
 html {
   scroll-behavior: smooth;
+  max-width: 100%;
+  overflow-x: hidden;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
   font-family: var(--font-source-sans), system-ui, sans-serif;
+  max-width: 100%;
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* Flex children default to min-width:auto and can force horizontal page scroll. */
+body > * {
+  min-width: 0;
+  max-width: 100%;
 }
 
 ::selection {

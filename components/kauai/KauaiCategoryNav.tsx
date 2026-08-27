@@ -9,9 +9,9 @@ export function KauaiCategoryNav({ currentPath }: Props) {
   return (
     <nav
       aria-label="Kauai categories"
-      className="sticky top-[4.25rem] z-40 border-b border-navy/8 bg-mist-soft/95 backdrop-blur-md"
+      className="sticky top-[4.25rem] z-40 w-full max-w-full border-b border-navy/8 bg-mist-soft/95 backdrop-blur-md"
     >
-      <div className="mx-auto flex max-w-6xl gap-1.5 overflow-x-auto overscroll-x-contain px-4 py-2.5 [scrollbar-width:none] md:gap-2 md:px-8 md:py-3 [&::-webkit-scrollbar]:hidden">
+      <div className="mx-auto flex w-full max-w-6xl min-w-0 gap-1.5 overflow-x-auto overscroll-x-contain px-4 py-2.5 [scrollbar-width:none] md:gap-2 md:px-8 md:py-3 [&::-webkit-scrollbar]:hidden">
         <Link
           href="/kauai"
           className={`shrink-0 rounded-sm px-2.5 py-1.5 text-sm transition-colors md:px-3 ${

@@ -11,7 +11,7 @@ import {
   OPERATORS_PATH,
 } from "@/data/kauai-operators";
 import { createPageMetadata } from "@/lib/seo";
-import { viatorAffiliateUrl } from "@/lib/viator";
+import { VIATOR_LINK_REL, viatorAffiliateUrl } from "@/lib/viator";
 
 export const metadata = createPageMetadata({
   title: "Best Helicopter Tour Operators on Kauai (2026)",
@@ -36,7 +36,7 @@ export default function KauaiOperatorsPage() {
   return (
     <>
       <Header variant="solid" />
-      <main className="flex-1 pt-[4.25rem]">
+      <main className="flex-1 min-w-0 w-full max-w-full pt-[4.25rem]">
         <KauaiCategoryNav currentPath={OPERATORS_PATH} />
 
         <section className="bg-navy-deep px-5 pb-14 pt-12 text-white md:px-8 md:pb-20 md:pt-16">
@@ -90,8 +90,29 @@ export default function KauaiOperatorsPage() {
             <h2 className="font-display text-2xl text-navy md:text-3xl">
               Kauai helicopter companies at a glance
             </h2>
-            <div className="mt-8 overflow-x-auto rounded-sm border border-navy/10 bg-white">
-              <table className="min-w-[640px] w-full border-collapse text-left text-sm">
+            <ul className="mt-8 space-y-3 md:hidden">
+              {kauaiOperators.map((operator) => (
+                <li
+                  key={operator.id}
+                  className="border border-navy/10 bg-white px-4 py-4"
+                >
+                  <a
+                    href={`#${operator.id}`}
+                    className="font-medium text-navy hover:text-teal"
+                  >
+                    {operator.shortName}
+                  </a>
+                  <p className="mt-2 text-sm text-stone">{operator.bestKnownFor}</p>
+                  <p className="mt-2 text-xs leading-relaxed text-stone-light">
+                    {getOperatorTours(operator)
+                      .map((tour) => tour.shortName)
+                      .join(" · ")}
+                  </p>
+                </li>
+              ))}
+            </ul>
+            <div className="mt-8 hidden overflow-hidden rounded-sm border border-navy/10 bg-white md:block">
+              <table className="w-full border-collapse text-left text-sm">
                 <thead>
                   <tr className="border-b border-navy/10 bg-mist-soft text-xs uppercase tracking-[0.08em] text-stone">
                     <th className="px-4 py-3 font-semibold">Operator</th>
@@ -181,7 +202,7 @@ export default function KauaiOperatorsPage() {
                           key={tour.id}
                           href={viatorAffiliateUrl(tour.viatorUrl)}
                           target="_blank"
-                          rel="sponsored noopener noreferrer"
+                          rel={VIATOR_LINK_REL}
                           className="group overflow-hidden rounded-sm border border-navy/10 bg-mist transition-colors hover:border-teal"
                         >
                           <div className="relative aspect-[16/10]">

@@ -1,7 +1,7 @@
 import Image from "next/image";
 import type { KauaiCategory } from "@/data/kauai-categories";
 import { getRankedTours } from "@/data/kauai-categories";
-import { viatorAffiliateUrl } from "@/lib/viator";
+import { VIATOR_LINK_REL, viatorAffiliateUrl } from "@/lib/viator";
 
 type Props = {
   category: KauaiCategory;
@@ -15,13 +15,64 @@ export function CategoryQuickTable({
   const showFormat = rows.some((row) => row.tableFormat);
 
   return (
-    <section className="bg-mist px-5 py-12 md:px-8 md:py-16">
-      <div className="mx-auto max-w-6xl">
+    <section className="min-w-0 max-w-full bg-mist px-5 py-12 md:px-8 md:py-16">
+      <div className="mx-auto w-full min-w-0 max-w-6xl">
         <h2 className="font-display text-2xl text-navy md:text-3xl">
           Quick comparison
         </h2>
-        <div className="mt-8 overflow-x-auto rounded-sm border border-navy/10 bg-white">
-          <table className="min-w-[640px] w-full border-collapse text-left text-sm">
+
+        <ul className="mt-8 space-y-3 md:hidden">
+          {rows.map(({ tour, tableBestFor, tableDuration, tableFormat }) => (
+            <li
+              key={tour.id}
+              className="border border-navy/10 bg-white px-4 py-4"
+            >
+              <div className="flex items-start justify-between gap-3">
+                <a
+                  href={`#rank-${tour.id}`}
+                  className="font-medium text-navy hover:text-teal"
+                >
+                  {tour.shortName}
+                </a>
+                <p className="shrink-0 font-medium text-navy">{tour.priceLabel}</p>
+              </div>
+              <p className="mt-0.5 text-xs text-stone-light">{tour.supplier}</p>
+              <dl className="mt-3 grid grid-cols-2 gap-x-3 gap-y-2 text-sm text-stone">
+                {showFormat && (
+                  <div>
+                    <dt className="text-xs uppercase tracking-[0.08em] text-stone-light">
+                      Format
+                    </dt>
+                    <dd className="mt-0.5">{tableFormat ?? "—"}</dd>
+                  </div>
+                )}
+                <div>
+                  <dt className="text-xs uppercase tracking-[0.08em] text-stone-light">
+                    Best for
+                  </dt>
+                  <dd className="mt-0.5">{tableBestFor}</dd>
+                </div>
+                <div>
+                  <dt className="text-xs uppercase tracking-[0.08em] text-stone-light">
+                    Duration
+                  </dt>
+                  <dd className="mt-0.5">{tableDuration}</dd>
+                </div>
+              </dl>
+              <a
+                href={viatorAffiliateUrl(tour.viatorUrl)}
+                target="_blank"
+                rel={VIATOR_LINK_REL}
+                className="mt-4 inline-block text-sm font-semibold text-teal hover:text-teal-bright"
+              >
+                Check availability →
+              </a>
+            </li>
+          ))}
+        </ul>
+
+        <div className="mt-8 hidden overflow-hidden rounded-sm border border-navy/10 bg-white md:block">
+          <table className="w-full border-collapse text-left text-sm">
             <thead>
               <tr className="border-b border-navy/10 bg-mist-soft text-xs uppercase tracking-[0.08em] text-stone">
                 <th className="px-4 py-3 font-semibold">Tour</th>
@@ -67,8 +118,8 @@ export function CategoryQuickTable({
                     <a
                       href={viatorAffiliateUrl(tour.viatorUrl)}
                       target="_blank"
-                      rel="sponsored noopener noreferrer"
-                      className="whitespace-nowrap text-sm font-semibold text-teal hover:text-teal-bright"
+                      rel={VIATOR_LINK_REL}
+                      className="text-sm font-semibold text-teal hover:text-teal-bright"
                     >
                       Check availability →
                     </a>
@@ -93,6 +144,7 @@ export function CategoryQuickTable({
   );
 }
 
+
 export function CategoryRankings({ category }: Props) {
   const rows = getRankedTours(category);
 
@@ -116,7 +168,7 @@ export function CategoryRankings({ category }: Props) {
               <a
                 href={viatorAffiliateUrl(tour.viatorUrl)}
                 target="_blank"
-                rel="sponsored noopener noreferrer"
+                rel={VIATOR_LINK_REL}
                 className="absolute inset-0 z-0"
                 aria-label={`See current price and availability for ${tour.fullName} on Viator`}
               />
@@ -195,7 +247,7 @@ export function CategoryChooseGuide({ category }: Props) {
               key={tour.id}
               href={viatorAffiliateUrl(tour.viatorUrl)}
               target="_blank"
-              rel="sponsored noopener noreferrer"
+              rel={VIATOR_LINK_REL}
               className="rounded-sm border border-navy/10 bg-white px-5 py-6 transition-colors hover:border-teal"
             >
               <p className="text-sm font-semibold text-teal">{award}</p>

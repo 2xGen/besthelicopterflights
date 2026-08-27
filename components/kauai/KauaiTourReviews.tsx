@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { kauaiTours } from "@/data/kauai-tours";
-import { viatorAffiliateUrl } from "@/lib/viator";
+import { VIATOR_LINK_REL, viatorAffiliateUrl } from "@/lib/viator";
 
 export function KauaiTourReviews() {
   return (
@@ -25,7 +25,7 @@ export function KauaiTourReviews() {
               id={tour.id}
               href={viatorAffiliateUrl(tour.viatorUrl)}
               target="_blank"
-              rel="sponsored noopener noreferrer"
+              rel={VIATOR_LINK_REL}
               className="group scroll-mt-28 grid gap-8 overflow-hidden rounded-sm border border-navy/10 bg-white p-5 transition-colors hover:border-teal md:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] md:items-center md:gap-10 md:p-8"
             >
               <div className="relative aspect-[7/5] overflow-hidden rounded-sm bg-navy">

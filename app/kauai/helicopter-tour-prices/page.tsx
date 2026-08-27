@@ -10,7 +10,7 @@ import { KauaiRelatedCategories } from "@/components/kauai/KauaiRelatedCategorie
 import { getCategory, getTour } from "@/data/kauai-categories";
 import { kauaiTours } from "@/data/kauai-tours";
 import { createPageMetadata } from "@/lib/seo";
-import { viatorAffiliateUrl } from "@/lib/viator";
+import { VIATOR_LINK_REL, viatorAffiliateUrl } from "@/lib/viator";
 
 const category = getCategory("helicopter-tour-prices");
 
@@ -82,7 +82,7 @@ export default function PricesCategoryPage() {
   return (
     <>
       <Header variant="solid" />
-      <main className="flex-1 pt-[4.25rem]">
+      <main className="flex-1 min-w-0 w-full max-w-full pt-[4.25rem]">
         <KauaiCategoryNav currentPath={category.path} />
 
         <section className="bg-navy-deep px-5 pb-14 pt-12 text-white md:px-8 md:pb-20 md:pt-16">
@@ -166,8 +166,62 @@ export default function PricesCategoryPage() {
               duration is known — it is a comparison aid, not a measure of
               scenic value.
             </p>
-            <div className="mt-8 overflow-x-auto rounded-sm border border-navy/10 bg-white">
-              <table className="min-w-[780px] w-full border-collapse text-left text-sm">
+            <div className="mt-8 md:hidden">
+              <ul className="space-y-3">
+                {sortedByPrice.map((tour) => (
+                  <li
+                    key={tour.id}
+                    className="border border-navy/10 bg-white px-4 py-4"
+                  >
+                    <div className="flex items-start justify-between gap-3">
+                      <div className="min-w-0">
+                        <p className="font-medium text-navy">{tour.shortName}</p>
+                        <p className="mt-0.5 text-xs text-stone-light">
+                          {tour.supplier}
+                        </p>
+                      </div>
+                      <p className="shrink-0 font-medium text-navy">
+                        {tour.priceLabel}
+                      </p>
+                    </div>
+                    <dl className="mt-3 grid grid-cols-2 gap-x-3 gap-y-2 text-sm text-stone">
+                      <div>
+                        <dt className="text-xs uppercase tracking-[0.08em] text-stone-light">
+                          Type
+                        </dt>
+                        <dd className="mt-0.5">{tour.bestFor}</dd>
+                      </div>
+                      <div>
+                        <dt className="text-xs uppercase tracking-[0.08em] text-stone-light">
+                          Duration
+                        </dt>
+                        <dd className="mt-0.5">{tour.duration}</dd>
+                      </div>
+                      <div className="col-span-2">
+                        <dt className="text-xs uppercase tracking-[0.08em] text-stone-light">
+                          Price / published min
+                        </dt>
+                        <dd className="mt-0.5">
+                          {formatPerMinute(
+                            pricePerMinute(tour.priceFrom, tour.durationMinutes),
+                          )}
+                        </dd>
+                      </div>
+                    </dl>
+                    <a
+                      href={viatorAffiliateUrl(tour.viatorUrl)}
+                      target="_blank"
+                      rel={VIATOR_LINK_REL}
+                      className="mt-4 inline-block text-sm font-semibold text-teal hover:text-teal-bright"
+                    >
+                      Check price →
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div className="mt-8 hidden overflow-hidden rounded-sm border border-navy/10 bg-white md:block">
+              <table className="w-full border-collapse text-left text-sm">
                 <thead>
                   <tr className="border-b border-navy/10 bg-mist-soft text-xs uppercase tracking-[0.08em] text-stone">
                     <th className="px-4 py-3 font-semibold">Tour</th>
@@ -208,8 +262,8 @@ export default function PricesCategoryPage() {
                         <a
                           href={viatorAffiliateUrl(tour.viatorUrl)}
                           target="_blank"
-                          rel="sponsored noopener noreferrer"
-                          className="whitespace-nowrap text-sm font-semibold text-teal hover:text-teal-bright"
+                          rel={VIATOR_LINK_REL}
+                          className="text-sm font-semibold text-teal hover:text-teal-bright"
                         >
                           Check price →
                         </a>

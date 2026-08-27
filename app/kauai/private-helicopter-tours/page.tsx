@@ -11,7 +11,7 @@ import { KauaiCategoryNav } from "@/components/kauai/KauaiCategoryNav";
 import { KauaiRelatedCategories } from "@/components/kauai/KauaiRelatedCategories";
 import { getCategory, getTour } from "@/data/kauai-categories";
 import { createPageMetadata } from "@/lib/seo";
-import { viatorAffiliateUrl } from "@/lib/viator";
+import { VIATOR_LINK_REL, viatorAffiliateUrl } from "@/lib/viator";
 
 const category = getCategory("private-helicopter-tours");
 const jackHarter = getTour("luxury-doors-off");
@@ -33,7 +33,7 @@ export default function PrivateCategoryPage() {
   return (
     <>
       <Header variant="solid" />
-      <main className="flex-1 pt-[4.25rem]">
+      <main className="flex-1 min-w-0 w-full max-w-full pt-[4.25rem]">
         <KauaiCategoryNav currentPath={category.path} />
 
         <section className="bg-navy-deep px-5 pb-14 pt-12 text-white md:px-8 md:pb-20 md:pt-16">
@@ -82,7 +82,7 @@ export default function PrivateCategoryPage() {
             <a
               href={viatorAffiliateUrl(jackHarter.viatorUrl)}
               target="_blank"
-              rel="sponsored noopener noreferrer"
+              rel={VIATOR_LINK_REL}
               className="group mt-10 grid gap-8 overflow-hidden rounded-sm border border-navy/10 bg-white p-5 transition-colors hover:border-teal md:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] md:items-center md:gap-10 md:p-8"
             >
               <div className="relative aspect-[7/5] overflow-hidden rounded-sm bg-navy">
@@ -224,7 +224,7 @@ export default function PrivateCategoryPage() {
             <a
               href={viatorAffiliateUrl(jackHarter.viatorUrl)}
               target="_blank"
-              rel="sponsored noopener noreferrer"
+              rel={VIATOR_LINK_REL}
               className="block rounded-sm border border-navy/10 bg-white px-5 py-6 transition-colors hover:border-teal md:px-6"
             >
               <p className="text-sm font-semibold text-teal">

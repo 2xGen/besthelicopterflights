@@ -1,5 +1,5 @@
 import { featuredKauaiTours } from "@/data/kauai-tours";
-import { viatorAffiliateUrl } from "@/lib/viator";
+import { VIATOR_LINK_REL, viatorAffiliateUrl } from "@/lib/viator";
 
 export function KauaiReadyToChoose() {
   return (
@@ -21,7 +21,7 @@ export function KauaiReadyToChoose() {
               <a
                 href={viatorAffiliateUrl(tour.viatorUrl)}
                 target="_blank"
-                rel="sponsored noopener noreferrer"
+                rel={VIATOR_LINK_REL}
                 className="flex items-center justify-between gap-4 rounded-sm border border-white/15 bg-white/5 px-5 py-4 transition-colors hover:border-teal-bright/50 hover:bg-white/10"
               >
                 <span>

@@ -33,7 +33,7 @@ export default function DoorsOffCategoryPage() {
   return (
     <>
       <Header variant="solid" />
-      <main className="flex-1 pt-[4.25rem]">
+      <main className="flex-1 min-w-0 w-full max-w-full pt-[4.25rem]">
         <KauaiCategoryNav currentPath={category.path} />
 
         <section className="bg-navy-deep px-5 pb-14 pt-12 text-white md:px-8 md:pb-20 md:pt-16">
@@ -124,8 +124,42 @@ export default function DoorsOffCategoryPage() {
               on photography goals, comfort preferences and who is flying with
               you.
             </p>
-            <div className="mt-8 overflow-x-auto rounded-sm border border-navy/10 bg-white">
-              <table className="min-w-[520px] w-full border-collapse text-left text-sm">
+            <div className="mt-8 space-y-3 md:hidden">
+              {[
+                ["Views", "Unobstructed open-air sightlines", "Through windows"],
+                [
+                  "Photography",
+                  "Excellent for many shooters",
+                  "Good, with glass/reflection considerations",
+                ],
+                ["Wind", "Higher exposure", "Lower exposure"],
+                ["Comfort", "More exposed", "More sheltered"],
+                ["Best for", "Photography / immersion", "Comfort / mixed groups"],
+              ].map(([label, off, on]) => (
+                <div
+                  key={label}
+                  className="border border-navy/10 bg-white px-4 py-4"
+                >
+                  <p className="font-medium text-navy">{label}</p>
+                  <dl className="mt-3 space-y-2 text-sm text-stone">
+                    <div>
+                      <dt className="text-xs uppercase tracking-[0.08em] text-stone-light">
+                        Doors-off
+                      </dt>
+                      <dd className="mt-0.5">{off}</dd>
+                    </div>
+                    <div>
+                      <dt className="text-xs uppercase tracking-[0.08em] text-stone-light">
+                        Doors-on
+                      </dt>
+                      <dd className="mt-0.5">{on}</dd>
+                    </div>
+                  </dl>
+                </div>
+              ))}
+            </div>
+            <div className="mt-8 hidden overflow-hidden rounded-sm border border-navy/10 bg-white md:block">
+              <table className="w-full border-collapse text-left text-sm">
                 <thead>
                   <tr className="border-b border-navy/10 bg-mist-soft text-xs uppercase tracking-[0.08em] text-stone">
                     <th className="px-4 py-3 font-semibold" />
@@ -136,13 +170,26 @@ export default function DoorsOffCategoryPage() {
                 <tbody className="text-stone">
                   {[
                     ["Views", "Unobstructed open-air sightlines", "Through windows"],
-                    ["Photography", "Excellent for many shooters", "Good, with glass/reflection considerations"],
+                    [
+                      "Photography",
+                      "Excellent for many shooters",
+                      "Good, with glass/reflection considerations",
+                    ],
                     ["Wind", "Higher exposure", "Lower exposure"],
                     ["Comfort", "More exposed", "More sheltered"],
-                    ["Best for", "Photography / immersion", "Comfort / mixed groups"],
+                    [
+                      "Best for",
+                      "Photography / immersion",
+                      "Comfort / mixed groups",
+                    ],
                   ].map(([label, off, on]) => (
-                    <tr key={label} className="border-b border-navy/8 last:border-0">
-                      <td className="px-4 py-3 font-medium text-navy">{label}</td>
+                    <tr
+                      key={label}
+                      className="border-b border-navy/8 last:border-0"
+                    >
+                      <td className="px-4 py-3 font-medium text-navy">
+                        {label}
+                      </td>
                       <td className="px-4 py-3">{off}</td>
                       <td className="px-4 py-3">{on}</td>
                     </tr>

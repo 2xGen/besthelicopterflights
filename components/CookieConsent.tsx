@@ -34,7 +34,7 @@ export function CookieConsent() {
       role="dialog"
       aria-labelledby="cookie-consent-title"
       aria-describedby="cookie-consent-desc"
-      className="fixed inset-x-0 bottom-0 z-[100] p-4 md:p-6"
+      className="fixed inset-x-0 bottom-0 z-[100] max-w-full p-4 md:p-6"
     >
       <div className="mx-auto max-w-3xl border border-white/10 bg-navy-deep p-5 text-white shadow-[0_-8px_40px_rgba(6,20,28,0.35)] md:p-6">
         <h2

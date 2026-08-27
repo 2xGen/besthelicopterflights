@@ -18,11 +18,11 @@ export function KauaiRelatedCategories({ excludeHref }: Props) {
           Keep comparing by intent — tours, operators, prices and specialty
           guides answer different search questions.
         </p>
-        <ul className="mt-6 flex gap-2 overflow-x-auto overscroll-x-contain pb-1 [scrollbar-width:none] sm:mt-8 sm:grid sm:grid-cols-2 sm:gap-3 sm:overflow-visible lg:grid-cols-3 [&::-webkit-scrollbar]:hidden">
-          <li className="min-w-[14.5rem] shrink-0 sm:min-w-0">
+        <ul className="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+          <li>
             <Link
               href="/kauai"
-              className="block h-full rounded-sm border border-navy/10 bg-white px-4 py-3 transition-colors hover:border-teal sm:px-5 sm:py-4"
+              className="block rounded-sm border border-navy/10 bg-white px-4 py-3 transition-colors hover:border-teal sm:px-5 sm:py-4"
             >
               <span className="font-medium text-navy">
                 Best Helicopter Tours on Kauai
@@ -33,10 +33,10 @@ export function KauaiRelatedCategories({ excludeHref }: Props) {
             </Link>
           </li>
           {related.map((guide) => (
-            <li key={guide.href} className="min-w-[14.5rem] shrink-0 sm:min-w-0">
+            <li key={guide.href}>
               <Link
                 href={guide.href}
-                className="block h-full rounded-sm border border-navy/10 bg-white px-4 py-3 transition-colors hover:border-teal sm:px-5 sm:py-4"
+                className="block rounded-sm border border-navy/10 bg-white px-4 py-3 transition-colors hover:border-teal sm:px-5 sm:py-4"
               >
                 <span className="font-medium text-navy">{guide.title}</span>
                 <span className="mt-1 block text-sm text-stone">

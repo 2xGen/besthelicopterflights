@@ -14,7 +14,7 @@ export default function AboutPage() {
   return (
     <>
       <Header variant="solid" />
-      <main className="flex-1 pt-[4.25rem]">
+      <main className="flex-1 min-w-0 w-full max-w-full pt-[4.25rem]">
         <section className="bg-navy-deep px-5 pb-14 pt-12 text-white md:px-8 md:pb-20 md:pt-16">
           <div className="mx-auto max-w-3xl">
             <p className="text-sm font-semibold uppercase tracking-[0.14em] text-teal-bright">

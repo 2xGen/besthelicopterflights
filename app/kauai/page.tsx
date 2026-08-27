@@ -20,7 +20,7 @@ export default function KauaiPage() {
   return (
     <>
       <Header variant="solid" />
-      <main className="flex-1 pt-[4.25rem]">
+      <main className="flex-1 min-w-0 w-full max-w-full pt-[4.25rem]">
         <KauaiCategoryNav currentPath="/kauai" />
 
         <section className="relative overflow-hidden bg-navy-deep px-5 pb-12 pt-10 text-white md:px-8 md:pb-24 md:pt-20">
