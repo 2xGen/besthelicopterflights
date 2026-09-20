@@ -51,7 +51,7 @@ export function Waitlist() {
             Get notified as we expand beyond Kauai
           </h2>
           <p className="mt-4 text-base leading-relaxed text-stone">
-            Kauai rankings are live. Leave your email for Maui, Oahu and Big
+            Kauai and Oahu rankings are live. Leave your email for Maui and Big
             Island comparisons as they launch — no spam.
           </p>
 

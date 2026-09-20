@@ -1,0 +1,135 @@
+import Image from "next/image";
+import Link from "next/link";
+import { Footer } from "@/components/Footer";
+import { Header } from "@/components/Header";
+import { BigIslandCategoryNav } from "@/components/big-island/BigIslandCategoryNav";
+import { BigIslandComparisonTable } from "@/components/big-island/BigIslandComparisonTable";
+import { BigIslandReadyToChoose } from "@/components/big-island/BigIslandReadyToChoose";
+import { BigIslandTourReviews } from "@/components/big-island/BigIslandTourReviews";
+import { BIG_ISLAND_FEATURED_IMAGE } from "@/data/images";
+import { createPageMetadata } from "@/lib/seo";
+
+export const metadata = createPageMetadata({
+  title: "Best Helicopter Tours on the Big Island: Compared & Ranked",
+  description:
+    "Independent comparison of Big Island helicopter tours — Kīlauea volcano, Kohala waterfalls, Hilo and Kona departures, doors-off and private flights ranked using published routes, durations and pricing.",
+  path: "/big-island",
+  keywords: [
+    "best helicopter tours Big Island",
+    "Big Island helicopter comparison",
+    "Kilauea helicopter tour",
+    "Hawaii Volcanoes National Park helicopter",
+    "Kohala waterfalls helicopter",
+    "Kona helicopter tour",
+    "Hilo helicopter tour",
+  ],
+});
+
+export default function BigIslandPage() {
+  return (
+    <>
+      <Header variant="solid" />
+      <main className="flex-1 min-w-0 w-full max-w-full pt-[4.25rem]">
+        <BigIslandCategoryNav currentPath="/big-island" />
+
+        <section className="relative overflow-hidden bg-navy-deep px-5 pb-12 pt-10 text-white md:px-8 md:pb-24 md:pt-20">
+          <div
+            className="pointer-events-none absolute inset-0 opacity-40"
+            style={{
+              background:
+                "radial-gradient(ellipse 80% 60% at 70% 20%, rgba(42,111,122,0.45), transparent 60%)",
+            }}
+          />
+          <div className="relative mx-auto grid max-w-6xl items-center gap-8 lg:grid-cols-[minmax(0,1.15fr)_minmax(0,0.85fr)] lg:gap-14">
+            <div>
+              <p className="text-sm font-semibold uppercase tracking-[0.14em] text-teal-bright">
+                Big Island · Hawaii
+              </p>
+              <h1 className="mt-3 max-w-3xl font-display text-3xl leading-tight md:mt-4 md:text-5xl md:leading-[1.12]">
+                Best Helicopter Tours on the Big Island: Compared &amp; Ranked
+              </h1>
+              <p className="mt-5 max-w-2xl text-base leading-relaxed text-white/80 md:mt-6 md:text-lg">
+                Hawaiʻi Island is built for aerial sightseeing: active volcano
+                landscapes around Kīlauea, Kohala’s towering waterfall valleys,
+                the Hāmākua Coast and Kona’s lava-lined shore. From Kona,
+                Waikoloa and Hilo, travelers can weigh doors-on/off flights,
+                private cabins, short coastal hops and full island-crossing
+                circuits.
+              </p>
+              <p className="mt-4 max-w-2xl text-base leading-relaxed text-white/70">
+                We research each option using publicly available operator
+                information, published routes, durations, formats and pricing —
+                then rank by fit and evidence, not by marketplace sort order.
+                Active lava or glow viewing is never guaranteed.
+              </p>
+              <div className="mt-8 flex flex-wrap gap-3 md:mt-9 md:gap-4">
+                <Link
+                  href="/big-island/doors-off-helicopter-tours"
+                  className="rounded-sm bg-teal px-5 py-3 text-sm font-semibold text-white transition-colors hover:bg-teal-bright"
+                >
+                  Best doors-off tours
+                </Link>
+                <Link
+                  href="/big-island/kilauea-volcano"
+                  className="rounded-sm border border-white/35 px-5 py-3 text-sm font-medium text-white transition-colors hover:border-white hover:bg-white/10"
+                >
+                  Kīlauea volcano tours
+                </Link>
+              </div>
+            </div>
+
+            <div className="mx-auto w-full max-w-md lg:mx-0 lg:justify-self-end">
+              <div className="relative aspect-square overflow-hidden rounded-2xl border border-white/15 bg-navy shadow-[0_28px_60px_-20px_rgba(0,0,0,0.7)] ring-1 ring-white/10">
+                <Image
+                  src={BIG_ISLAND_FEATURED_IMAGE}
+                  alt="Aerial helicopter view over Big Island volcanic terrain and coastline"
+                  fill
+                  priority
+                  className="object-cover"
+                  sizes="(max-width: 1024px) 90vw, 420px"
+                />
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section className="border-b border-navy/8 bg-mist-soft px-5 py-10 md:px-8 md:py-12">
+          <div className="mx-auto max-w-6xl">
+            <h2 className="font-display text-xl text-navy md:text-2xl">
+              How this Big Island ranking works
+            </h2>
+            <p className="mt-4 max-w-3xl text-base leading-relaxed text-stone">
+              We do not call a tour “best overall” simply because it appears
+              first on Viator. Each featured placement is justified by published
+              experience type (doors-on/off, private, volcano focus, Kohala
+              waterfalls, exclusive landings), departure base, duration and
+              price relative to what the flight offers. Use the category bar for
+              doors-off, photography, Kīlauea volcano, prices and operators.
+              Additional products are included below — including shorter Kona
+              coastal hops, Hilo waterfall specialists and a romantic
+              coffee-landing charter — so you can compare niche options that
+              answer different search intents. Also compare{" "}
+              <Link href="/maui" className="font-medium text-teal hover:underline">
+                Maui
+              </Link>
+              ,{" "}
+              <Link href="/oahu" className="font-medium text-teal hover:underline">
+                Oahu
+              </Link>{" "}
+              and{" "}
+              <Link href="/kauai" className="font-medium text-teal hover:underline">
+                Kauai
+              </Link>{" "}
+              when your trip spans multiple islands.
+            </p>
+          </div>
+        </section>
+
+        <BigIslandComparisonTable />
+        <BigIslandTourReviews />
+        <BigIslandReadyToChoose />
+      </main>
+      <Footer />
+    </>
+  );
+}

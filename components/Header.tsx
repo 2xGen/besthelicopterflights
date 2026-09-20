@@ -10,13 +10,24 @@ type HeaderProps = {
 
 const homeLinks = [
   { href: "/kauai", label: "Kauai" },
+  { href: "/oahu", label: "Oahu" },
+  { href: "/maui", label: "Maui" },
+  { href: "/big-island", label: "Big Island" },
   { href: "/about", label: "About" },
   { href: "/#how-we-compare", label: "How we compare" },
 ];
 
 export function Header({ variant = "overlay" }: HeaderProps) {
   const pathname = usePathname();
-  const onKauai = pathname === "/kauai" || pathname.startsWith("/kauai/");
+  const onIslandHub =
+    pathname === "/kauai" ||
+    pathname.startsWith("/kauai/") ||
+    pathname === "/oahu" ||
+    pathname.startsWith("/oahu/") ||
+    pathname === "/maui" ||
+    pathname.startsWith("/maui/") ||
+    pathname === "/big-island" ||
+    pathname.startsWith("/big-island/");
   const [scrolled, setScrolled] = useState(variant === "solid");
 
   useEffect(() => {
@@ -59,7 +70,7 @@ export function Header({ variant = "overlay" }: HeaderProps) {
             </Link>
           ))}
         </nav>
-        {onKauai ? (
+        {onIslandHub ? (
           <Link
             href="/about"
             className="shrink-0 rounded-sm border border-white/30 px-3 py-2 text-sm font-medium text-white transition-colors hover:border-white hover:bg-white/10 sm:hidden"
@@ -68,10 +79,10 @@ export function Header({ variant = "overlay" }: HeaderProps) {
           </Link>
         ) : (
           <Link
-            href="/kauai"
+            href="/big-island"
             className="shrink-0 rounded-sm bg-teal px-3.5 py-2 text-sm font-medium text-white transition-colors hover:bg-teal-bright sm:hidden"
           >
-            Kauai
+            Big Island
           </Link>
         )}
       </div>

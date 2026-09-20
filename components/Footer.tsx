@@ -20,6 +20,15 @@ export function Footer() {
           <a href="/kauai" className="hover:text-white">
             Kauai tours
           </a>
+          <a href="/oahu" className="hover:text-white">
+            Oahu tours
+          </a>
+          <a href="/maui" className="hover:text-white">
+            Maui tours
+          </a>
+          <a href="/big-island" className="hover:text-white">
+            Big Island tours
+          </a>
           <a href="/privacy" className="hover:text-white">
             Privacy
           </a>

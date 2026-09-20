@@ -117,7 +117,7 @@ export const kauaiTours: KauaiTour[] = [
     shortName: "Kauai Luxury Doors-Off",
     fullName: "Kauai Luxury 60-Minute Doors-Off Helicopter Adventure",
     supplier: "Jack Harter Helicopters – Tours",
-    bestFor: "Doors-off",
+    bestFor: "60-minute doors-off",
     duration: "60 min",
     durationMinutes: 60,
     rating: 4.8,
@@ -147,7 +147,7 @@ export const kauaiTours: KauaiTour[] = [
     fullName:
       "Private Kauaʻi Helicopter Experience: Doors-Off ALL WINDOW SEATS",
     supplier: "Mauna Loa Helicopters Kauai",
-    bestFor: "Doors-off",
+    bestFor: "All-window-seat doors-off",
     duration: "55 min",
     durationMinutes: 55,
     rating: 4.8,

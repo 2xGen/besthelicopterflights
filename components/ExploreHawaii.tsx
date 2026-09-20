@@ -1,6 +1,11 @@
 import Image from "next/image";
 import Link from "next/link";
-import { KAUAI_FEATURED_IMAGE } from "@/data/images";
+import {
+  BIG_ISLAND_FEATURED_IMAGE,
+  KAUAI_FEATURED_IMAGE,
+  MAUI_FEATURED_IMAGE,
+  OAHU_FEATURED_IMAGE,
+} from "@/data/images";
 
 const islands = [
   {
@@ -8,43 +13,40 @@ const islands = [
     href: "/kauai",
     status: "Live",
     blurb:
-      "Na Pali coast, Waimea Canyon and waterfall valleys — our first ranked comparisons.",
+      "Na Pali coast, Waimea Canyon and waterfall valleys — ranked comparisons live now.",
     image: KAUAI_FEATURED_IMAGE,
     alt: "Aerial view of Kauai’s green cliffs, coastline and turquoise ocean",
     priority: true,
   },
   {
     name: "Oahu",
-    href: null,
-    status: "Coming soon",
+    href: "/oahu",
+    status: "Live",
     blurb:
-      "Honolulu shoreline, Diamond Head and North Shore routes travelers often compare.",
-    image:
-      "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1200&q=80",
-    alt: "Tropical shoreline with turquoise water on Oahu",
-    priority: false,
+      "Diamond Head, Pearl Harbor, Windward cliffs and North Shore routes — compared and ranked.",
+    image: OAHU_FEATURED_IMAGE,
+    alt: "Aerial helicopter view over Oahu coastline and landmarks",
+    priority: true,
   },
   {
     name: "Maui",
-    href: null,
-    status: "Coming soon",
+    href: "/maui",
+    status: "Live",
     blurb:
-      "West Maui mountains, Hana coastline and Haleakala views from the air.",
-    image:
-      "https://images.unsplash.com/photo-1542259009477-d625272157b7?auto=format&fit=crop&w=1200&q=80",
-    alt: "Aerial coastal landscape resembling Maui scenery",
-    priority: false,
+      "West Maui mountains, Molokai cliffs, Hana rainforest and Haleakala — compared and ranked.",
+    image: MAUI_FEATURED_IMAGE,
+    alt: "Aerial helicopter view over Maui coastline and green mountains",
+    priority: true,
   },
   {
     name: "Big Island",
-    href: null,
-    status: "Coming soon",
+    href: "/big-island",
+    status: "Live",
     blurb:
-      "Volcanic terrain, waterfalls and expansive coastlines across Hawaiʻi Island.",
-    image:
-      "https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?auto=format&fit=crop&w=1200&q=80",
-    alt: "Dramatic island landscape with cliffs and ocean",
-    priority: false,
+      "Kīlauea volcano, Kohala waterfalls, Hilo and Kona departures — compared and ranked.",
+    image: BIG_ISLAND_FEATURED_IMAGE,
+    alt: "Aerial helicopter view over Big Island volcanic terrain and coastline",
+    priority: true,
   },
 ];
 
@@ -62,8 +64,8 @@ export function ExploreHawaii() {
           Starting with Hawaii — island by island
         </h2>
         <p className="mt-5 max-w-2xl text-base leading-relaxed text-stone md:text-lg">
-          Hawaii is our beachhead. Kauai rankings are live now; other islands
-          will follow gradually.
+          Hawaii is our beachhead. Rankings are live for Kauai, Oahu, Maui and
+          the Big Island.
         </p>
 
         <ul className="mt-14 grid gap-6 sm:grid-cols-2">

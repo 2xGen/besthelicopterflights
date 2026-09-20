@@ -1,12 +1,7 @@
-import { featuredKauaiTours } from "@/data/kauai-tours";
+import { featuredOahuTours } from "@/data/oahu-tours";
 import { VIATOR_LINK_REL, viatorAffiliateUrl } from "@/lib/viator";
 
-function formatReviews(count: number | null) {
-  if (count == null) return "—";
-  return count.toLocaleString("en-US");
-}
-
-export function KauaiComparisonTable() {
+export function OahuComparisonTable() {
   return (
     <section
       id="comparison"
@@ -14,24 +9,20 @@ export function KauaiComparisonTable() {
     >
       <div className="mx-auto w-full min-w-0 max-w-6xl">
         <p className="text-sm font-semibold uppercase tracking-[0.14em] text-teal">
-          Quick comparison
+          Compared &amp; ranked
         </p>
         <h2 className="mt-4 font-display text-3xl leading-tight text-navy md:text-4xl">
-          Best Kauai helicopter tours
+          Best Oahu helicopter tours
         </h2>
         <p className="mt-5 max-w-3xl text-base leading-relaxed text-stone md:text-lg">
-          We rank featured tours according to how well they fit a specific type
-          of traveler rather than simply reproducing Viator’s marketplace order.
-          Our comparison considers traveler feedback, published flight duration
-          and route, experience type, price relative to the flight offered and
-          practical differences such as doors-off flying, private cabins,
-          departure location and landings.
+          This ranking is based on published route and duration details, format
+          clarity (doors-on/off, private, specialty), departure base and value
+          relative to experience — not Viator’s default listing order. “Best
+          for” labels explain why each tour earns its place.
         </p>
 
-        {/* Mobile: stacked cards — wide tables expand the document and create
-            empty horizontal scroll space on phones. */}
         <ul className="mt-10 space-y-3 md:hidden">
-          {featuredKauaiTours.map((tour) => (
+          {featuredOahuTours.map((tour) => (
             <li
               key={tour.id}
               className="border border-navy/10 bg-white px-4 py-4"
@@ -60,20 +51,6 @@ export function KauaiComparisonTable() {
                   </dt>
                   <dd className="mt-0.5">{tour.duration}</dd>
                 </div>
-                <div>
-                  <dt className="text-xs uppercase tracking-[0.08em] text-stone-light">
-                    Rating
-                  </dt>
-                  <dd className="mt-0.5 text-navy">
-                    {tour.rating != null ? tour.rating.toFixed(1) : "—"}
-                  </dd>
-                </div>
-                <div>
-                  <dt className="text-xs uppercase tracking-[0.08em] text-stone-light">
-                    Reviews
-                  </dt>
-                  <dd className="mt-0.5">{formatReviews(tour.reviews)}</dd>
-                </div>
               </dl>
               <a
                 href={viatorAffiliateUrl(tour.viatorUrl)}
@@ -95,8 +72,6 @@ export function KauaiComparisonTable() {
                 <th className="px-4 py-3 font-semibold">Tour</th>
                 <th className="px-4 py-3 font-semibold">Best for</th>
                 <th className="px-4 py-3 font-semibold">Duration</th>
-                <th className="px-4 py-3 font-semibold">Rating</th>
-                <th className="px-4 py-3 font-semibold">Reviews</th>
                 <th className="px-4 py-3 font-semibold">From</th>
                 <th className="px-4 py-3 font-semibold">
                   <span className="sr-only">Availability</span>
@@ -104,7 +79,7 @@ export function KauaiComparisonTable() {
               </tr>
             </thead>
             <tbody>
-              {featuredKauaiTours.map((tour) => (
+              {featuredOahuTours.map((tour) => (
                 <tr
                   key={tour.id}
                   className="border-b border-navy/8 last:border-0"
@@ -125,12 +100,6 @@ export function KauaiComparisonTable() {
                   </td>
                   <td className="px-4 py-4 text-stone">{tour.bestFor}</td>
                   <td className="px-4 py-4 text-stone">{tour.duration}</td>
-                  <td className="px-4 py-4 text-navy">
-                    {tour.rating != null ? tour.rating.toFixed(1) : "—"}
-                  </td>
-                  <td className="px-4 py-4 text-stone">
-                    {formatReviews(tour.reviews)}
-                  </td>
                   <td className="px-4 py-4 font-medium text-navy">
                     {tour.priceLabel}
                   </td>
@@ -151,9 +120,9 @@ export function KauaiComparisonTable() {
         </div>
 
         <p className="mt-4 text-xs leading-relaxed text-stone-light">
-          Ratings, review counts and from-prices reflect publicly listed Viator
-          product data at research time and can change. We may earn a commission
-          when you book through Viator links on this page.
+          From-prices and durations reflect publicly listed Viator product data
+          at research time and can change. We may earn a commission when you
+          book through Viator links on this page.
         </p>
       </div>
     </section>
