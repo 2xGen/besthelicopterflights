@@ -6,8 +6,13 @@ import { OahuCategoryNav } from "@/components/oahu/OahuCategoryNav";
 import { OahuComparisonTable } from "@/components/oahu/OahuComparisonTable";
 import { OahuReadyToChoose } from "@/components/oahu/OahuReadyToChoose";
 import { OahuTourReviews } from "@/components/oahu/OahuTourReviews";
+import { DestinationFlightResults } from "@/components/flights/DestinationFlightResults";
 import { OAHU_FEATURED_IMAGE } from "@/data/images";
 import { createPageMetadata } from "@/lib/seo";
+
+type PageProps = {
+  searchParams: Promise<Record<string, string | string[] | undefined>>;
+};
 
 export const metadata = createPageMetadata({
   title: "Best Helicopter Tours on Oahu: Compared & Ranked",
@@ -23,14 +28,24 @@ export const metadata = createPageMetadata({
   ],
 });
 
-export default function OahuPage() {
+export default async function OahuPage({ searchParams }: PageProps) {
+  const sp = await searchParams;
   return (
     <>
-      <Header variant="solid" />
+      <Header />
       <main className="flex-1 min-w-0 w-full max-w-full pt-[4.25rem]">
         <OahuCategoryNav currentPath="/oahu" />
 
-        <section className="relative overflow-hidden bg-navy-deep px-5 pb-12 pt-10 text-white md:px-8 md:pb-24 md:pt-20">
+        <DestinationFlightResults
+          destination="oahu"
+          destinationName="Oahu"
+          searchParams={sp}
+        />
+
+        <section
+          id="research-guide"
+          className="relative overflow-hidden bg-navy-deep px-5 pb-12 pt-10 text-white md:px-8 md:pb-24 md:pt-20"
+        >
           <div
             className="pointer-events-none absolute inset-0 opacity-40"
             style={{
@@ -40,12 +55,12 @@ export default function OahuPage() {
           />
           <div className="relative mx-auto grid max-w-6xl items-center gap-8 lg:grid-cols-[minmax(0,1.15fr)_minmax(0,0.85fr)] lg:gap-14">
             <div>
-              <p className="text-sm font-semibold uppercase tracking-[0.14em] text-teal-bright">
+              <p className="text-sm font-semibold uppercase tracking-[0.14em] text-sky">
                 Oahu · Hawaii
               </p>
-              <h1 className="mt-3 max-w-3xl font-display text-3xl leading-tight md:mt-4 md:text-5xl md:leading-[1.12]">
+              <h2 className="mt-3 max-w-3xl font-display text-3xl leading-tight md:mt-4 md:text-5xl md:leading-[1.12]">
                 Best Helicopter Tours on Oahu: Compared &amp; Ranked
-              </h1>
+              </h2>
               <p className="mt-5 max-w-2xl text-base leading-relaxed text-white/80 md:mt-6 md:text-lg">
                 Oahu packs iconic landmarks into a compact island: Diamond Head,
                 Pearl Harbor, Windward cliffs, Sacred Falls and the North Shore

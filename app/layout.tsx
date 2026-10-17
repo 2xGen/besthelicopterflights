@@ -1,27 +1,27 @@
 import type { Metadata } from "next";
-import { Fraunces, Source_Sans_3 } from "next/font/google";
+import { Inter, Plus_Jakarta_Sans } from "next/font/google";
 import { ConsentAnalytics } from "@/components/ConsentAnalytics";
 import { CookieConsent } from "@/components/CookieConsent";
 import { SITE_OG_IMAGE } from "@/data/images";
 import { SITE_NAME, SITE_URL } from "@/lib/seo";
 import "./globals.css";
 
-const fraunces = Fraunces({
-  variable: "--font-fraunces",
+const heading = Plus_Jakarta_Sans({
+  variable: "--font-heading",
   subsets: ["latin"],
   display: "swap",
 });
 
-const sourceSans = Source_Sans_3({
-  variable: "--font-source-sans",
+const body = Inter({
+  variable: "--font-body",
   subsets: ["latin"],
   display: "swap",
 });
 
-const defaultTitle = "Best Helicopter Flights — Hawaii Tours Compared";
+const defaultTitle = "Best Helicopter Flights — Find Your Perfect Flight";
 const defaultDescription =
-  "Independent Hawaii helicopter tour research. Compare reviews, routes, prices and operators to choose the right flight.";
-const ogTitle = "Best Helicopter Tours in Hawaii, Compared & Ranked";
+  "Compare helicopter tours worldwide by flight time, price, doors-off or private experience — Hawaii, New York, Grand Canyon, Dubai and more. Book through trusted providers.";
+const ogTitle = "Best Helicopter Flights — Find Your Perfect Helicopter Flight";
 
 const ogImage = {
   url: SITE_OG_IMAGE,
@@ -39,12 +39,12 @@ export const metadata: Metadata = {
   description: defaultDescription,
   applicationName: SITE_NAME,
   keywords: [
-    "best helicopter tours Hawaii",
-    "Hawaii helicopter comparison",
-    "Kauai helicopter tours",
-    "Maui helicopter flights",
-    "Oahu helicopter tours",
-    "Big Island helicopter",
+    "helicopter tours",
+    "compare helicopter tours",
+    "Hawaii helicopter tours",
+    "New York helicopter tours",
+    "Grand Canyon helicopter tours",
+    "Dubai helicopter tours",
   ],
   authors: [{ name: SITE_NAME }],
   creator: SITE_NAME,
@@ -76,7 +76,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="en"
-      className={`${fraunces.variable} ${sourceSans.variable} h-full antialiased`}
+      className={`${heading.variable} ${body.variable} h-full antialiased`}
     >
       <body className="flex min-h-full max-w-full flex-col bg-mist font-sans text-navy">
         {children}

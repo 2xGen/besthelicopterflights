@@ -1,5 +1,5 @@
 import { featuredBigIslandTours } from "@/data/big-island-tours";
-import { VIATOR_LINK_REL, viatorAffiliateUrl } from "@/lib/viator";
+import { VIATOR_LINK_REL, viatorGoPath } from "@/lib/viator";
 
 export function BigIslandComparisonTable() {
   return (
@@ -54,10 +54,10 @@ export function BigIslandComparisonTable() {
                 </div>
               </dl>
               <a
-                href={viatorAffiliateUrl(tour.viatorUrl)}
+                href={viatorGoPath(tour.viatorUrl)}
                 target="_blank"
                 rel={VIATOR_LINK_REL}
-                className="mt-4 inline-block text-sm font-semibold text-teal hover:text-teal-bright"
+                className="mt-4 inline-block text-sm font-semibold text-teal hover:text-sky"
               >
                 Check availability →
               </a>
@@ -106,10 +106,10 @@ export function BigIslandComparisonTable() {
                   </td>
                   <td className="px-4 py-4">
                     <a
-                      href={viatorAffiliateUrl(tour.viatorUrl)}
+                      href={viatorGoPath(tour.viatorUrl)}
                       target="_blank"
                       rel={VIATOR_LINK_REL}
-                      className="text-sm font-semibold text-teal hover:text-teal-bright"
+                      className="text-sm font-semibold text-teal hover:text-sky"
                     >
                       Check availability →
                     </a>

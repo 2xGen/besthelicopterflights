@@ -1,7 +1,7 @@
 import Image from "next/image";
 import type { KauaiCategory } from "@/data/kauai-categories";
 import { getRankedTours } from "@/data/kauai-categories";
-import { VIATOR_LINK_REL, viatorAffiliateUrl } from "@/lib/viator";
+import { VIATOR_LINK_REL, viatorGoPath } from "@/lib/viator";
 
 type Props = {
   category: KauaiCategory;
@@ -60,10 +60,10 @@ export function CategoryQuickTable({
                 </div>
               </dl>
               <a
-                href={viatorAffiliateUrl(tour.viatorUrl)}
+                href={viatorGoPath(tour.viatorUrl)}
                 target="_blank"
                 rel={VIATOR_LINK_REL}
-                className="mt-4 inline-block text-sm font-semibold text-teal hover:text-teal-bright"
+                className="mt-4 inline-block text-sm font-semibold text-teal hover:text-sky"
               >
                 Check availability →
               </a>
@@ -116,10 +116,10 @@ export function CategoryQuickTable({
                   </td>
                   <td className="px-4 py-4">
                     <a
-                      href={viatorAffiliateUrl(tour.viatorUrl)}
+                      href={viatorGoPath(tour.viatorUrl)}
                       target="_blank"
                       rel={VIATOR_LINK_REL}
-                      className="text-sm font-semibold text-teal hover:text-teal-bright"
+                      className="text-sm font-semibold text-teal hover:text-sky"
                     >
                       Check availability →
                     </a>
@@ -166,7 +166,7 @@ export function CategoryRankings({ category }: Props) {
               className="group relative scroll-mt-28 grid gap-8 overflow-hidden rounded-sm border border-navy/10 bg-white p-5 transition-colors hover:border-teal md:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] md:items-center md:gap-10 md:p-8"
             >
               <a
-                href={viatorAffiliateUrl(tour.viatorUrl)}
+                href={viatorGoPath(tour.viatorUrl)}
                 target="_blank"
                 rel={VIATOR_LINK_REL}
                 className="absolute inset-0 z-0"
@@ -198,7 +198,7 @@ export function CategoryRankings({ category }: Props) {
                   <p className="pointer-events-auto mt-3 text-sm">
                     <a
                       href={relatedLink.href}
-                      className="font-medium text-teal hover:text-teal-bright"
+                      className="font-medium text-teal hover:text-sky"
                     >
                       {relatedLink.label} →
                     </a>
@@ -245,7 +245,7 @@ export function CategoryChooseGuide({ category }: Props) {
           {rows.map(({ tour, award, chooseIf }) => (
             <a
               key={tour.id}
-              href={viatorAffiliateUrl(tour.viatorUrl)}
+              href={viatorGoPath(tour.viatorUrl)}
               target="_blank"
               rel={VIATOR_LINK_REL}
               className="rounded-sm border border-navy/10 bg-white px-5 py-6 transition-colors hover:border-teal"

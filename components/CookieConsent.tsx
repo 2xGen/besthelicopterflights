@@ -34,41 +34,34 @@ export function CookieConsent() {
       role="dialog"
       aria-labelledby="cookie-consent-title"
       aria-describedby="cookie-consent-desc"
-      className="fixed inset-x-0 bottom-0 z-[100] max-w-full p-4 md:p-6"
+      className="fixed bottom-0 right-0 z-[100] w-full max-w-md p-3 md:p-5"
     >
-      <div className="mx-auto max-w-3xl border border-white/10 bg-navy-deep p-5 text-white shadow-[0_-8px_40px_rgba(6,20,28,0.35)] md:p-6">
-        <h2
-          id="cookie-consent-title"
-          className="font-display text-lg leading-snug md:text-xl"
-        >
+      <div className="rounded-xl border border-navy/10 bg-white p-4 text-navy shadow-[0_12px_40px_rgba(15,29,51,0.18)] md:p-5">
+        <h2 id="cookie-consent-title" className="text-base">
           Cookies & analytics
         </h2>
         <p
           id="cookie-consent-desc"
-          className="mt-3 text-sm leading-relaxed text-white/70 md:text-[0.9375rem]"
+          className="mt-1.5 text-sm leading-relaxed text-stone"
         >
-          We use optional analytics (Vercel Analytics) to understand visits and
-          improve the site. It only runs if you accept. Essential site
-          operation does not require analytics cookies. Search Console and Bing
-          Webmaster Tools are used for search indexing and do not set cookies
-          through this banner. See our{" "}
+          We use optional analytics (Vercel Analytics) to improve the site. It
+          only runs if you accept. See our{" "}
           <Link
             href="/privacy"
-            className="text-teal-bright underline-offset-2 hover:underline"
+            className="font-medium text-teal underline-offset-2 hover:underline"
           >
             Privacy Policy
-          </Link>{" "}
-          for details. You can change this later via Cookie settings in the
-          footer.
+          </Link>
+          . You can change this later via Cookie settings in the footer.
         </p>
-        <div className="mt-5 flex flex-col gap-3 sm:flex-row sm:justify-end">
+        <div className="mt-4 flex gap-2">
           <button
             type="button"
             onClick={() => {
               writeConsent(false);
               setVisible(false);
             }}
-            className="order-2 border border-white/25 px-5 py-2.5 text-sm font-semibold text-white/90 transition-colors hover:border-white/50 hover:bg-white/5 sm:order-1"
+            className="order-2 flex-1 rounded-lg border border-navy/15 px-4 py-2.5 text-sm font-semibold text-navy transition-colors hover:border-navy/40 sm:order-1"
           >
             Reject analytics
           </button>
@@ -78,7 +71,7 @@ export function CookieConsent() {
               writeConsent(true);
               setVisible(false);
             }}
-            className="order-1 bg-teal px-5 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-teal-bright sm:order-2"
+            className="order-1 flex-1 rounded-lg bg-teal px-4 py-2.5 text-sm font-bold text-white transition-colors hover:bg-teal-bright sm:order-2"
           >
             Accept analytics
           </button>

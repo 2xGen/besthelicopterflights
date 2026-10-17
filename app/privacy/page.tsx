@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
+import { CategoryHeroSection } from "@/components/HeroChrome";
 import { createPageMetadata } from "@/lib/seo";
 
 export const metadata = createPageMetadata({
@@ -13,21 +14,19 @@ export const metadata = createPageMetadata({
 export default function PrivacyPage() {
   return (
     <>
-      <Header variant="solid" />
+      <Header />
       <main className="flex-1 min-w-0 w-full max-w-full pt-[4.25rem]">
-        <section className="bg-navy-deep px-5 pb-14 pt-12 text-white md:px-8 md:pb-20 md:pt-16">
-          <div className="mx-auto max-w-3xl">
-            <p className="text-sm font-semibold uppercase tracking-[0.14em] text-teal-bright">
-              Legal
-            </p>
-            <h1 className="mt-4 font-display text-3xl leading-tight md:text-5xl md:leading-[1.12]">
-              Privacy Policy
-            </h1>
-            <p className="mt-5 max-w-2xl text-base leading-relaxed text-white/70 md:text-lg">
-              Last updated: 27 August 2026
-            </p>
-          </div>
-        </section>
+        <CategoryHeroSection contentClassName="max-w-3xl">
+          <p className="text-sm font-semibold uppercase tracking-[0.14em] text-sky">
+            Legal
+          </p>
+          <h1 className="mt-4 font-display text-3xl leading-tight md:text-5xl md:leading-[1.12]">
+            Privacy Policy
+          </h1>
+          <p className="mt-5 max-w-2xl text-base leading-relaxed text-white/70 md:text-lg">
+            Last updated: 27 August 2026
+          </p>
+        </CategoryHeroSection>
 
         <article className="bg-mist px-5 py-14 md:px-8 md:py-20">
           <div className="mx-auto max-w-3xl space-y-12 text-base leading-relaxed text-stone md:text-lg">

@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
+import { CategoryHeroSection } from "@/components/HeroChrome";
 import {
   BigIslandCategoryChooseGuide,
   BigIslandCategoryQuickTable,
@@ -13,7 +14,7 @@ import {
   getBigIslandTour,
 } from "@/data/big-island-categories";
 import { createPageMetadata } from "@/lib/seo";
-import { VIATOR_LINK_REL, viatorAffiliateUrl } from "@/lib/viator";
+import { VIATOR_LINK_REL, viatorGoPath } from "@/lib/viator";
 
 const category = getBigIslandCategory("kilauea-volcano");
 const kohalaAlternative = getBigIslandTour("kohala-waterfalls-valleys");
@@ -35,13 +36,11 @@ export const metadata = createPageMetadata({
 export default function BigIslandKilaueaPage() {
   return (
     <>
-      <Header variant="solid" />
+      <Header />
       <main className="flex-1 min-w-0 w-full max-w-full pt-[4.25rem]">
         <BigIslandCategoryNav currentPath={category.path} />
 
-        <section className="bg-navy-deep px-5 pb-14 pt-12 text-white md:px-8 md:pb-20 md:pt-16">
-          <div className="mx-auto max-w-6xl">
-            <p className="text-sm font-semibold uppercase tracking-[0.14em] text-teal-bright">
+        <CategoryHeroSection>            <p className="text-sm font-semibold uppercase tracking-[0.14em] text-sky">
               {category.eyebrow}
             </p>
             <h1 className="mt-4 max-w-3xl font-display text-3xl leading-tight md:text-5xl md:leading-[1.12]">
@@ -54,14 +53,13 @@ export default function BigIslandKilaueaPage() {
               Want Kohala waterfalls without a volcano crossing? Start with{" "}
               <Link
                 href="/big-island"
-                className="text-teal-bright hover:underline"
+                className="text-sky hover:underline"
               >
                 Best Helicopter Tours on the Big Island
               </Link>
               .
             </p>
-          </div>
-        </section>
+        </CategoryHeroSection>
 
         <BigIslandCategoryQuickTable
           category={category}
@@ -125,7 +123,7 @@ export default function BigIslandKilaueaPage() {
               Looking for waterfall valleys instead?
             </h2>
             <a
-              href={viatorAffiliateUrl(kohalaAlternative.viatorUrl)}
+              href={viatorGoPath(kohalaAlternative.viatorUrl)}
               target="_blank"
               rel={VIATOR_LINK_REL}
               className="group mt-10 grid gap-8 overflow-hidden rounded-sm border border-navy/10 bg-white p-5 transition-colors hover:border-teal md:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] md:items-center md:gap-10 md:p-8"

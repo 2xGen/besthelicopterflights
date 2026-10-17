@@ -1,17 +1,33 @@
 @import "tailwindcss";
 
 :root {
-  --navy: #0b1f2a;
-  --navy-deep: #06141c;
-  --mist: #f4f7f8;
-  --mist-soft: #e8eef1;
-  --teal: #2a6f7a;
-  --teal-bright: #3a8a96;
-  --stone: #5c6b73;
-  --stone-light: #8a9aa3;
+  /* Ink — primary text */
+  --navy: #10292d;
+  /* Brand deep teal — header, search bands, dark sections */
+  --navy-deep: #123f46;
+  /* Navigation bar — darker teal so it separates from the brand bands below */
+  --nav: #0b2a2f;
+  /* Page surfaces */
+  --mist: #f3f7f7;
+  --mist-soft: #e2efee;
+  /* Primary action (buttons, links) */
+  --teal: #13707a;
+  /* Primary action hover */
+  --teal-bright: #0f5c64;
+  /* Light accent for text on brand surfaces */
+  --sky: #9fdcd6;
+  /* Search frame / highlight accent — sunset coral */
+  --sun: #ff765e;
+  --stone: #4a5568;
+  --stone-light: #8792a2;
+  --success: #0f8a5f;
   --white: #ffffff;
   --background: var(--mist);
   --foreground: var(--navy);
+}
+
+@theme {
+  --radius-sm: 0.625rem;
 }
 
 @theme inline {
@@ -19,28 +35,42 @@
   --color-foreground: var(--foreground);
   --color-navy: var(--navy);
   --color-navy-deep: var(--navy-deep);
+  --color-nav: var(--nav);
   --color-mist: var(--mist);
   --color-mist-soft: var(--mist-soft);
   --color-teal: var(--teal);
   --color-teal-bright: var(--teal-bright);
+  --color-sky: var(--sky);
+  --color-sun: var(--sun);
   --color-stone: var(--stone);
   --color-stone-light: var(--stone-light);
-  --font-sans: var(--font-source-sans);
-  --font-display: var(--font-fraunces);
+  --color-success: var(--success);
+  --font-sans: var(--font-body);
+  --font-display: var(--font-heading);
+}
+
+@layer base {
+  h1,
+  h2,
+  h3,
+  .font-display {
+    font-weight: 700;
+    letter-spacing: -0.02em;
+  }
 }
 
 html {
   scroll-behavior: smooth;
   max-width: 100%;
-  overflow-x: hidden;
+  overflow-x: clip;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: var(--font-source-sans), system-ui, sans-serif;
+  font-family: var(--font-body), system-ui, sans-serif;
   max-width: 100%;
-  overflow-x: hidden;
+  overflow-x: clip;
   position: relative;
 }
 
@@ -51,14 +81,14 @@ body > * {
 }
 
 ::selection {
-  background: color-mix(in srgb, var(--teal) 35%, transparent);
-  color: var(--navy-deep);
+  background: color-mix(in srgb, var(--teal) 25%, transparent);
+  color: var(--navy);
 }
 
 @keyframes fade-rise {
   from {
     opacity: 0;
-    transform: translateY(1.25rem);
+    transform: translateY(0.75rem);
   }
   to {
     opacity: 1;
@@ -78,7 +108,7 @@ body > * {
 @keyframes reveal-up {
   from {
     opacity: 0;
-    transform: translateY(1.5rem);
+    transform: translateY(1rem);
   }
   to {
     opacity: 1;
@@ -87,15 +117,15 @@ body > * {
 }
 
 .animate-fade-rise {
-  animation: fade-rise 0.9s ease-out both;
+  animation: fade-rise 0.6s ease-out both;
 }
 
 .animate-fade-in {
-  animation: fade-in 1.1s ease-out both;
+  animation: fade-in 0.8s ease-out both;
 }
 
 .animate-reveal-up {
-  animation: reveal-up 0.7s ease-out both;
+  animation: reveal-up 0.6s ease-out both;
 }
 
 @media (prefers-reduced-motion: reduce) {

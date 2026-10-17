@@ -1,5 +1,5 @@
 import { featuredKauaiTours } from "@/data/kauai-tours";
-import { VIATOR_LINK_REL, viatorAffiliateUrl } from "@/lib/viator";
+import { VIATOR_LINK_REL, viatorGoPath } from "@/lib/viator";
 
 const pickLabels: Record<string, string> = {
   "private-doors-off": "Choose private",
@@ -26,13 +26,13 @@ export function KauaiReadyToChoose() {
           {featuredKauaiTours.map((tour) => (
             <li key={tour.id}>
               <a
-                href={viatorAffiliateUrl(tour.viatorUrl)}
+                href={viatorGoPath(tour.viatorUrl)}
                 target="_blank"
                 rel={VIATOR_LINK_REL}
                 className="flex items-center justify-between gap-4 rounded-sm border border-white/15 bg-white/5 px-5 py-4 transition-colors hover:border-teal-bright/50 hover:bg-white/10"
               >
                 <span>
-                  <span className="block text-xs font-semibold uppercase tracking-[0.08em] text-teal-bright">
+                  <span className="block text-xs font-semibold uppercase tracking-[0.08em] text-sky">
                     {pickLabels[tour.id] ?? "Compare"}
                   </span>
                   <span className="mt-1 block font-medium text-white">
@@ -42,7 +42,7 @@ export function KauaiReadyToChoose() {
                     From {tour.priceLabel}
                   </span>
                 </span>
-                <span className="shrink-0 text-sm font-semibold text-teal-bright">
+                <span className="shrink-0 text-sm font-semibold text-sky">
                   Check on Viator →
                 </span>
               </a>

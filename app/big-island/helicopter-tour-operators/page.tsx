@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
+import { CategoryHeroSection } from "@/components/HeroChrome";
 import { BigIslandCategoryNav } from "@/components/big-island/BigIslandCategoryNav";
 import {
   BIG_ISLAND_OPERATORS_PATH,
@@ -10,7 +11,7 @@ import {
   getBigIslandOperatorTours,
 } from "@/data/big-island-operators";
 import { createPageMetadata } from "@/lib/seo";
-import { VIATOR_LINK_REL, viatorAffiliateUrl } from "@/lib/viator";
+import { VIATOR_LINK_REL, viatorGoPath } from "@/lib/viator";
 
 export const metadata = createPageMetadata({
   title: "Best Helicopter Tour Operators on the Big Island (2026)",
@@ -30,13 +31,11 @@ export const metadata = createPageMetadata({
 export default function BigIslandOperatorsPage() {
   return (
     <>
-      <Header variant="solid" />
+      <Header />
       <main className="flex-1 min-w-0 w-full max-w-full pt-[4.25rem]">
         <BigIslandCategoryNav currentPath={BIG_ISLAND_OPERATORS_PATH} />
 
-        <section className="bg-navy-deep px-5 pb-14 pt-12 text-white md:px-8 md:pb-20 md:pt-16">
-          <div className="mx-auto max-w-6xl">
-            <p className="text-sm font-semibold uppercase tracking-[0.14em] text-teal-bright">
+        <CategoryHeroSection>            <p className="text-sm font-semibold uppercase tracking-[0.14em] text-sky">
               Big Island · Operators
             </p>
             <h1 className="mt-4 max-w-3xl font-display text-3xl leading-tight md:text-5xl md:leading-[1.12]">
@@ -53,35 +52,34 @@ export default function BigIslandOperatorsPage() {
               Looking for the best tour for a specific need? Start with{" "}
               <Link
                 href="/big-island"
-                className="text-teal-bright hover:underline"
+                className="text-sky hover:underline"
               >
                 Best Helicopter Tours on the Big Island
               </Link>{" "}
               or browse{" "}
               <Link
                 href="/big-island/doors-off-helicopter-tours"
-                className="text-teal-bright hover:underline"
+                className="text-sky hover:underline"
               >
                 doors-off
               </Link>
               ,{" "}
               <Link
                 href="/big-island/kilauea-volcano"
-                className="text-teal-bright hover:underline"
+                className="text-sky hover:underline"
               >
                 Kīlauea
               </Link>
               , or{" "}
               <Link
                 href="/big-island/photography-helicopter-tours"
-                className="text-teal-bright hover:underline"
+                className="text-sky hover:underline"
               >
                 photography
               </Link>
               .
             </p>
-          </div>
-        </section>
+        </CategoryHeroSection>
 
         <section className="bg-mist px-5 py-12 md:px-8 md:py-16">
           <div className="mx-auto max-w-6xl">
@@ -188,7 +186,7 @@ export default function BigIslandOperatorsPage() {
                       {tours.map((tour) => (
                         <a
                           key={tour.id}
-                          href={viatorAffiliateUrl(tour.viatorUrl)}
+                          href={viatorGoPath(tour.viatorUrl)}
                           target="_blank"
                           rel={VIATOR_LINK_REL}
                           className="group overflow-hidden rounded-sm border border-navy/10 bg-mist transition-colors hover:border-teal"
@@ -210,7 +208,7 @@ export default function BigIslandOperatorsPage() {
                               {tour.bestFor} · {tour.duration} · from{" "}
                               {tour.priceLabel}
                             </p>
-                            <span className="mt-4 inline-flex text-sm font-semibold text-teal group-hover:text-teal-bright">
+                            <span className="mt-4 inline-flex text-sm font-semibold text-teal group-hover:text-sky">
                               See current price &amp; availability on Viator →
                             </span>
                           </div>

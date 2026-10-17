@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
+import { CategoryHeroSection } from "@/components/HeroChrome";
 import {
   OahuCategoryChooseGuide,
   OahuCategoryQuickTable,
@@ -31,13 +32,11 @@ export const metadata = createPageMetadata({
 export default function OahuDoorsOffCategoryPage() {
   return (
     <>
-      <Header variant="solid" />
+      <Header />
       <main className="flex-1 min-w-0 w-full max-w-full pt-[4.25rem]">
         <OahuCategoryNav currentPath={category.path} />
 
-        <section className="bg-navy-deep px-5 pb-14 pt-12 text-white md:px-8 md:pb-20 md:pt-16">
-          <div className="mx-auto max-w-6xl">
-            <p className="text-sm font-semibold uppercase tracking-[0.14em] text-teal-bright">
+        <CategoryHeroSection>            <p className="text-sm font-semibold uppercase tracking-[0.14em] text-sky">
               {category.eyebrow}
             </p>
             <h1 className="mt-4 max-w-3xl font-display text-3xl leading-tight md:text-5xl md:leading-[1.12]">
@@ -48,13 +47,12 @@ export default function OahuDoorsOffCategoryPage() {
             </p>
             <p className="mt-4 max-w-2xl text-sm text-white/55">
               Looking for the broader island comparison? See{" "}
-              <Link href="/oahu" className="text-teal-bright hover:underline">
+              <Link href="/oahu" className="text-sky hover:underline">
                 Best Helicopter Tours on Oahu
               </Link>
               .
             </p>
-          </div>
-        </section>
+        </CategoryHeroSection>
 
         <OahuCategoryQuickTable
           category={category}

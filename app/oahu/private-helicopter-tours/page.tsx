@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
+import { CategoryHeroSection } from "@/components/HeroChrome";
 import {
   OahuCategoryChooseGuide,
   OahuCategoryQuickTable,
@@ -10,7 +11,7 @@ import {
 import { OahuCategoryNav } from "@/components/oahu/OahuCategoryNav";
 import { getOahuCategory, getOahuTour } from "@/data/oahu-categories";
 import { createPageMetadata } from "@/lib/seo";
-import { VIATOR_LINK_REL, viatorAffiliateUrl } from "@/lib/viator";
+import { VIATOR_LINK_REL, viatorGoPath } from "@/lib/viator";
 
 const category = getOahuCategory("private-helicopter-tours");
 const sharedAlternative = getOahuTour("royal-crown");
@@ -32,13 +33,11 @@ export const metadata = createPageMetadata({
 export default function OahuPrivateCategoryPage() {
   return (
     <>
-      <Header variant="solid" />
+      <Header />
       <main className="flex-1 min-w-0 w-full max-w-full pt-[4.25rem]">
         <OahuCategoryNav currentPath={category.path} />
 
-        <section className="bg-navy-deep px-5 pb-14 pt-12 text-white md:px-8 md:pb-20 md:pt-16">
-          <div className="mx-auto max-w-6xl">
-            <p className="text-sm font-semibold uppercase tracking-[0.14em] text-teal-bright">
+        <CategoryHeroSection>            <p className="text-sm font-semibold uppercase tracking-[0.14em] text-sky">
               {category.eyebrow}
             </p>
             <h1 className="mt-4 max-w-3xl font-display text-3xl leading-tight md:text-5xl md:leading-[1.12]">
@@ -49,20 +48,19 @@ export default function OahuPrivateCategoryPage() {
             </p>
             <p className="mt-4 max-w-2xl text-sm leading-relaxed text-white/55">
               Looking for a shared flight? Compare our{" "}
-              <Link href="/oahu" className="text-teal-bright hover:underline">
+              <Link href="/oahu" className="text-sky hover:underline">
                 Best Helicopter Tours on Oahu
               </Link>{" "}
               or see the{" "}
               <Link
                 href="/oahu/doors-off-helicopter-tours"
-                className="text-teal-bright hover:underline"
+                className="text-sky hover:underline"
               >
                 Best Doors-Off Helicopter Tours on Oahu
               </Link>
               .
             </p>
-          </div>
-        </section>
+        </CategoryHeroSection>
 
         <OahuCategoryQuickTable
           category={category}
@@ -80,7 +78,7 @@ export default function OahuPrivateCategoryPage() {
               Don&apos;t need a private flight?
             </h2>
             <a
-              href={viatorAffiliateUrl(sharedAlternative.viatorUrl)}
+              href={viatorGoPath(sharedAlternative.viatorUrl)}
               target="_blank"
               rel={VIATOR_LINK_REL}
               className="group mt-10 grid gap-8 overflow-hidden rounded-sm border border-navy/10 bg-white p-5 transition-colors hover:border-teal md:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] md:items-center md:gap-10 md:p-8"
@@ -230,7 +228,7 @@ export default function OahuPrivateCategoryPage() {
         <section className="bg-mist-soft px-5 py-14 md:px-8 md:py-20">
           <div className="mx-auto max-w-6xl">
             <a
-              href={viatorAffiliateUrl(sharedAlternative.viatorUrl)}
+              href={viatorGoPath(sharedAlternative.viatorUrl)}
               target="_blank"
               rel={VIATOR_LINK_REL}
               className="block rounded-sm border border-navy/10 bg-white px-5 py-6 transition-colors hover:border-teal md:px-6"

@@ -1,5 +1,5 @@
 import { featuredBigIslandTours } from "@/data/big-island-tours";
-import { VIATOR_LINK_REL, viatorAffiliateUrl } from "@/lib/viator";
+import { VIATOR_LINK_REL, viatorGoPath } from "@/lib/viator";
 
 export function BigIslandReadyToChoose() {
   return (
@@ -19,7 +19,7 @@ export function BigIslandReadyToChoose() {
           {featuredBigIslandTours.map((tour) => (
             <li key={tour.id}>
               <a
-                href={viatorAffiliateUrl(tour.viatorUrl)}
+                href={viatorGoPath(tour.viatorUrl)}
                 target="_blank"
                 rel={VIATOR_LINK_REL}
                 className="flex items-center justify-between gap-4 rounded-sm border border-white/15 bg-white/5 px-5 py-4 transition-colors hover:border-teal-bright/50 hover:bg-white/10"
@@ -32,7 +32,7 @@ export function BigIslandReadyToChoose() {
                     From {tour.priceLabel}
                   </span>
                 </span>
-                <span className="shrink-0 text-sm font-semibold text-teal-bright">
+                <span className="shrink-0 text-sm font-semibold text-sky">
                   Check this tour on Viator →
                 </span>
               </a>

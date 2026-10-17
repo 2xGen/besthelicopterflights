@@ -7,7 +7,7 @@ export function CookieSettingsButton() {
       onClick={() => {
         window.dispatchEvent(new Event("bh-open-cookie-settings"));
       }}
-      className="hover:text-white"
+      className="hover:text-teal"
     >
       Cookie settings
     </button>

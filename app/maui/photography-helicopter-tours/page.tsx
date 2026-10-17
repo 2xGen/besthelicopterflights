@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
+import { CategoryHeroSection } from "@/components/HeroChrome";
 import {
   MauiCategoryChooseGuide,
   MauiCategoryQuickTable,
@@ -29,13 +30,11 @@ export const metadata = createPageMetadata({
 export default function MauiPhotographyCategoryPage() {
   return (
     <>
-      <Header variant="solid" />
+      <Header />
       <main className="flex-1 min-w-0 w-full max-w-full pt-[4.25rem]">
         <MauiCategoryNav currentPath={category.path} />
 
-        <section className="bg-navy-deep px-5 pb-14 pt-12 text-white md:px-8 md:pb-20 md:pt-16">
-          <div className="mx-auto max-w-6xl">
-            <p className="text-sm font-semibold uppercase tracking-[0.14em] text-teal-bright">
+        <CategoryHeroSection>            <p className="text-sm font-semibold uppercase tracking-[0.14em] text-sky">
               {category.eyebrow}
             </p>
             <h1 className="mt-4 max-w-3xl font-display text-3xl leading-tight md:text-5xl md:leading-[1.12]">
@@ -48,22 +47,21 @@ export default function MauiPhotographyCategoryPage() {
               Many of the strongest photography options overlap with our{" "}
               <Link
                 href="/maui/doors-off-helicopter-tours"
-                className="text-teal-bright hover:underline"
+                className="text-sky hover:underline"
               >
                 doors-off Maui guide
               </Link>{" "}
               and{" "}
               <Link
                 href="/maui/private-helicopter-tours"
-                className="text-teal-bright hover:underline"
+                className="text-sky hover:underline"
               >
                 exclusive landing guide
               </Link>
               , but this comparison focuses specifically on what matters when
               you want to bring a camera.
             </p>
-          </div>
-        </section>
+        </CategoryHeroSection>
 
         <MauiCategoryQuickTable category={category} />
         <MauiCategoryRankings category={category} />

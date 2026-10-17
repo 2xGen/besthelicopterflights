@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { featuredKauaiTours, kauaiTours } from "@/data/kauai-tours";
-import { VIATOR_LINK_REL, viatorAffiliateUrl } from "@/lib/viator";
+import { VIATOR_LINK_REL, viatorGoPath } from "@/lib/viator";
 
 function getTour(id: string) {
   const tour = kauaiTours.find((t) => t.id === id);
@@ -250,7 +250,7 @@ export function KauaiChooseGuide() {
               </p>
               <a
                 href={row.href}
-                className="mt-1 block text-sm font-medium text-teal hover:text-teal-bright"
+                className="mt-1 block text-sm font-medium text-teal hover:text-sky"
               >
                 {row.start}
               </a>
@@ -413,7 +413,7 @@ export function KauaiFeaturedTourWriteups() {
                           <p className="mt-3 text-sm">
                             <Link
                               href={copy.extraLink.href}
-                              className="font-medium text-teal hover:text-teal-bright"
+                              className="font-medium text-teal hover:text-sky"
                             >
                               {copy.extraLink.label} →
                             </Link>
@@ -423,7 +423,7 @@ export function KauaiFeaturedTourWriteups() {
                     )}
 
                     <a
-                      href={viatorAffiliateUrl(tour.viatorUrl)}
+                      href={viatorGoPath(tour.viatorUrl)}
                       target="_blank"
                       rel={VIATOR_LINK_REL}
                       className="mt-7 inline-flex rounded-sm bg-navy px-5 py-3 text-sm font-semibold text-white transition-colors hover:bg-navy-deep"
@@ -468,10 +468,10 @@ export function KauaiMoreTours() {
                   {item.body}
                 </p>
                 <a
-                  href={viatorAffiliateUrl(tour.viatorUrl)}
+                  href={viatorGoPath(tour.viatorUrl)}
                   target="_blank"
                   rel={VIATOR_LINK_REL}
-                  className="mt-4 inline-block text-sm font-semibold text-teal hover:text-teal-bright"
+                  className="mt-4 inline-block text-sm font-semibold text-teal hover:text-sky"
                 >
                   See current price &amp; availability on Viator →
                 </a>

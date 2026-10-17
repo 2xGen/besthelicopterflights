@@ -13,9 +13,20 @@ const nextConfig: NextConfig = {
       },
       {
         protocol: "https",
+        hostname: "hare-media-cdn.tripadvisor.com",
+      },
+      {
+        protocol: "https",
         hostname: "iemgpccgdlwpsrsjuumo.supabase.co",
       },
     ],
+  },
+  async redirects() {
+    return ["kauai", "oahu", "maui", "big-island"].map((island) => ({
+      source: `/tours/:slug(${island}-[a-z0-9-]+)`,
+      destination: `/${island}?flight=:slug`,
+      permanent: true,
+    }));
   },
 };
 

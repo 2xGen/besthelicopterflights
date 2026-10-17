@@ -11,8 +11,13 @@ import {
   KauaiMoreTours,
 } from "@/components/kauai/KauaiHubGuide";
 import { KauaiReadyToChoose } from "@/components/kauai/KauaiReadyToChoose";
+import { DestinationFlightResults } from "@/components/flights/DestinationFlightResults";
 import { KAUAI_FEATURED_IMAGE } from "@/data/images";
 import { createPageMetadata } from "@/lib/seo";
+
+type PageProps = {
+  searchParams: Promise<Record<string, string | string[] | undefined>>;
+};
 
 export const metadata = createPageMetadata({
   title: "Best Kauai Helicopter Tours (2026): Compare Prices & Flights",
@@ -59,14 +64,24 @@ const quickPicks = [
   },
 ];
 
-export default function KauaiPage() {
+export default async function KauaiPage({ searchParams }: PageProps) {
+  const sp = await searchParams;
   return (
     <>
-      <Header variant="solid" />
+      <Header />
       <main className="flex-1 min-w-0 w-full max-w-full pt-[4.25rem]">
         <KauaiCategoryNav currentPath="/kauai" />
 
-        <section className="relative overflow-hidden bg-navy-deep px-5 pb-12 pt-10 text-white md:px-8 md:pb-20 md:pt-16">
+        <DestinationFlightResults
+          destination="kauai"
+          destinationName="Kauai"
+          searchParams={sp}
+        />
+
+        <section
+          id="research-guide"
+          className="relative overflow-hidden bg-navy-deep px-5 pb-12 pt-10 text-white md:px-8 md:pb-20 md:pt-16"
+        >
           <div
             className="pointer-events-none absolute inset-0 opacity-40"
             style={{
@@ -76,12 +91,12 @@ export default function KauaiPage() {
           />
           <div className="relative mx-auto grid max-w-6xl items-center gap-8 lg:grid-cols-[minmax(0,1.15fr)_minmax(0,0.85fr)] lg:gap-14">
             <div>
-              <p className="text-sm font-semibold uppercase tracking-[0.14em] text-teal-bright">
+              <p className="text-sm font-semibold uppercase tracking-[0.14em] text-sky">
                 Kauai · Hawaii
               </p>
-              <h1 className="mt-3 max-w-3xl font-display text-3xl leading-tight md:mt-4 md:text-5xl md:leading-[1.12]">
+              <h2 className="mt-3 max-w-3xl font-display text-3xl leading-tight md:mt-4 md:text-5xl md:leading-[1.12]">
                 Best Helicopter Tours on Kauai: Compared &amp; Ranked
-              </h1>
+              </h2>
               <p className="mt-5 max-w-2xl text-base leading-relaxed text-white/80 md:mt-6 md:text-lg">
                 The best Kauai helicopter tour depends on what matters most to
                 you: a private flight, doors-off views, waterfalls, a longer
