@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { notFound, redirect } from "next/navigation";
+import { notFound, permanentRedirect } from "next/navigation";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
 import { DestinationCategoryPage } from "@/components/flights/DestinationCategoryPage";
@@ -47,7 +47,7 @@ export async function CategoryRoutePage({
   const category = getDestinationCategory(destination, slug);
   if (!category) notFound();
   if (destination === "cape-town" && slug === "private-helicopter-tours") {
-    redirect("/cape-town");
+    permanentRedirect("/cape-town");
   }
   const inventory = await resolveDetailedSightseeing(destination);
   const packages = category.packages

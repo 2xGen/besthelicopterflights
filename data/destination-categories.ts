@@ -1792,7 +1792,6 @@ export const destinationCategories: DestinationCategory[] = [
     destination: "victoria-falls",
     slug: "zimbabwe-vs-zambia-helicopter-tours",
     navLabel: "Zimbabwe vs Zambia",
-    indexable: false,
     metaTitle: "Victoria Falls Helicopter Tours – Zimbabwe vs Zambia (2026)",
     metaDescription:
       "Zimbabwe or Zambia for a Victoria Falls helicopter flight? Compare departure points, transfers, prices and whether you need to cross the border.",
@@ -1844,7 +1843,6 @@ export const destinationCategories: DestinationCategory[] = [
     destination: "victoria-falls",
     slug: "private-helicopter-tours",
     navLabel: "Private",
-    indexable: false,
     metaTitle: "Private Victoria Falls Helicopter Tours (2026) – Compare Prices",
     metaDescription:
       "Compare private helicopter flights over Victoria Falls, where the helicopter itself is booked for your group: flight times and prices.",

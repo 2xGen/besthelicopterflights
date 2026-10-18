@@ -14,7 +14,7 @@ type Props = {
 };
 
 export function DestinationCategoryNav({ destination, destinationName, currentPath }: Props) {
-  const categories = categoriesFor(destination);
+  const categories = categoriesFor(destination).filter((c) => c.indexable !== false);
   if (categories.length === 0) return null;
   const related = categoryNavRelated[destination];
   const links = [
