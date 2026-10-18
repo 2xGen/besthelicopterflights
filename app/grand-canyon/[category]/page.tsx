@@ -4,7 +4,7 @@ import {
   categoryMetadata,
   categoryStaticParams,
 } from "@/components/flights/CategoryRoute";
-export { dynamic } from "@/components/flights/category-route-config";
+export const dynamic = "force-dynamic";
 
 const DESTINATION = "grand-canyon";
 
