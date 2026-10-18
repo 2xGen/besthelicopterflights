@@ -4,6 +4,7 @@ import {
   categoryMetadata,
   categoryStaticParams,
 } from "@/components/flights/CategoryRoute";
+export { dynamic } from "@/components/flights/category-route-config";
 
 const DESTINATION = "grand-canyon";
 

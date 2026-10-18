@@ -23,6 +23,8 @@ export type DestinationCategory = {
   navLabel: string;
   /** Set to false to keep the page as a noindexed filter view and out of the sitemap. */
   indexable?: boolean;
+  /** Override default minimum matching flights to allow indexing (default 3). */
+  minFlightsToIndex?: number;
   metaTitle: string;
   metaDescription: string;
   keywords: string[];
@@ -1843,6 +1845,7 @@ export const destinationCategories: DestinationCategory[] = [
     destination: "victoria-falls",
     slug: "private-helicopter-tours",
     navLabel: "Private",
+    minFlightsToIndex: 1,
     metaTitle: "Private Victoria Falls Helicopter Tours (2026) – Compare Prices",
     metaDescription:
       "Compare private helicopter flights over Victoria Falls, where the helicopter itself is booked for your group: flight times and prices.",
@@ -1920,7 +1923,9 @@ export const destinationCategories: DestinationCategory[] = [
 ];
 
 export function isCategoryIndexable(category: DestinationCategory, flightCount: number): boolean {
-  return category.indexable !== false && flightCount >= MIN_INDEXABLE_CATEGORY_FLIGHTS;
+  if (category.indexable === false) return false;
+  const min = category.minFlightsToIndex ?? MIN_INDEXABLE_CATEGORY_FLIGHTS;
+  return flightCount >= min;
 }
 
 export function categoriesFor(destination: DestinationSlug): DestinationCategory[] {
